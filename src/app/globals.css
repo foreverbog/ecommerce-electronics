@@ -1,21 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #fafafa;
   --foreground: #171717;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --primary: #5241c3;
+  --primary-lighter: #6f5ccc;
+  --primary-foreground: #fafafa;
+
+  --secondary: #b8da8b;
+  --secondary-lighter: #e0efcc;
+  --secondary-foreground: #171717;
+
+  --accent: #65ce9f;
+  --accent-lighter: #95dbba;
+  --accent-foreground: #171717;
+
+  --delete: #eb221f;
+  --delete-lighter: #f5453f;
+  --delete-foreground: #fafafa;
+
+  --title: "Oswald", sans-serif;
+  --content: "Roboto", sans-serif;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 }
