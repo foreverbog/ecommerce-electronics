@@ -1,16 +1,31 @@
+import ProductCard from "@/components/commerce/product/ProductCard";
 import Link from "next/link";
-import { Suspense } from "react";
 
 const Shop = async ({
   searchParams,
 }: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) => {
-  await new Promise((resolve) => setTimeout(resolve, 300));
+  const response = await fetch(
+    "https://fakestoreapi.in/api/products?limit=150"
+  );
 
-  const response = await fetch("https://fakestoreapi.in/api/products");
-
+  console.log(await searchParams);
   const responseProducts = await response.json();
+
+  const category = (await searchParams).category;
+
+  console.log(category);
+
+  if (category) {
+    const response = await fetch(
+      `https://fakestoreapi.in/api/products/category?type=${category.toLowerCase()}`
+    );
+
+    console.log(await response.json());
+
+    return <div>{category}</div>;
+  }
 
   const products = responseProducts.products;
 
@@ -28,11 +43,7 @@ const Shop = async ({
 
     console.log(filteredProducts);
     if (filteredProducts.length > 0) {
-      return (
-        <Suspense fallback={<div>Loading..</div>}>
-          <div>Hey</div>
-        </Suspense>
-      );
+      return <div>Hey</div>;
     } else {
       return (
         <>
@@ -44,13 +55,13 @@ const Shop = async ({
   }
 
   return (
-    <Suspense fallback={<div>Loading</div>}>
-      <div>
-        {products.map((product: any) => (
-          <p key={product.id}>{product.title}</p>
-        ))}
-      </div>
-    </Suspense>
+    <div>
+      hey
+      <ProductCard />
+      {/* {products.map((product: any) => (
+        <p key={product.id}>{product.title}</p>
+      ))} */}
+    </div>
   );
 };
 export default Shop;

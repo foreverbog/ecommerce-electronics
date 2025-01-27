@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
 import "../../globals.css";
-import SearchInput from "@/components/shop/SearchInput";
+import SearchInput from "@/components/commerce/navigation/SearchInput";
+import CategoriesLinks from "@/components/commerce/navigation/CategoriesLinks";
 
 export const metadata: Metadata = {
   title: "eCommerce",
@@ -17,6 +18,7 @@ export default function ShopLayout({
     <html lang="en">
       <body>
         <SearchInput />
+        <CategoriesLinks />
         {children}
       </body>
     </html>
