@@ -1,0 +1,79 @@
+"use client";
+
+import { Product } from "@/app/types/products";
+
+import Image from "next/image";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import { Autoplay, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+const HotSaleCarousel = ({ products }: { products: Product[] }) => {
+  const onSaleProducts = products.filter(
+    (product: Product) =>
+      product.onSale === true &&
+      typeof product.discount === "number" &&
+      product.discount > 10
+  );
+
+  console.log(onSaleProducts);
+
+  const calculateInitialPrice = (
+    reducedPrice: number,
+    discount: number
+  ): number => {
+    return Math.round(reducedPrice / (1 - discount / 100));
+  };
+
+  return (
+    <div className="w-full md:w-1/4">
+      <h1 className="text-2xl md:text-4xl font-title text-primary font-bold mb-2">
+        Hot Sales:
+      </h1>
+      <Swiper
+        className="mySwiper w-full  border border-primary rounded-md customSwiper"
+        centeredSlides={true}
+        autoplay={{ delay: 2500 }}
+        modules={[Autoplay, Navigation]}
+        navigation={true}
+        spaceBetween={30}
+      >
+        {onSaleProducts.map((product) => (
+          <SwiperSlide
+            key={product.id}
+            className="relative p-4 rounded-md  h-full hover:cursor-pointer"
+          >
+            <h2 className="truncate font-title text-xl md:text-2xl">
+              {product.title}
+            </h2>
+            <div className="relative w-32 md:w-40  justify-self-center">
+              <div className="absolute -right-8 top-1/4 font-content font-bold text-2xl bg-delete p-1 md:p-3 rounded-full rotate-45">
+                {product.discount}%
+              </div>
+              <Image
+                className="h-32 w-32 md:h-40 md:w-40 justify-self-center"
+                src={product.image}
+                alt={product.title}
+                width={128}
+                height={128}
+              />
+            </div>
+            <p className="truncate font-content">{product.description}</p>
+            <div className="flex justify-end gap-2">
+              <p className="font-title  text-xl md:text-2xl text-right opacity-50 line-through">
+                {product.discount &&
+                  calculateInitialPrice(product.price, product.discount)}
+                €
+              </p>
+              <p className="font-title text-xl md:text-2xl text-right">
+                {product.price}€
+              </p>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+};
+export default HotSaleCarousel;

@@ -15,12 +15,10 @@ export default function ShopLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <SearchInput />
-        <CategoriesLinks />
-        {children}
-      </body>
-    </html>
+    <>
+      <SearchInput />
+      <CategoriesLinks />
+      {children}
+    </>
   );
 }

@@ -6,12 +6,7 @@ import {
   FaHeadphones,
   FaPlug,
 } from "react-icons/fa";
-import { IconType } from "react-icons";
-
-export type Category = {
-  name: string;
-  icon: IconType;
-};
+import { Category } from "../types/category";
 
 export const categories: Category[] = [
   { name: "Tv", icon: FaTv },
