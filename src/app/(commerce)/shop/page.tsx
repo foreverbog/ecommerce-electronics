@@ -1,4 +1,5 @@
 import { getAllProducts } from "@/app/lib/products";
+import { Product } from "@/app/types/products";
 import CarouselContainer from "@/components/commerce/Carousels/CarouselContainer";
 import HotSaleCarousel from "@/components/commerce/Carousels/HotSaleCarousel";
 import PopularCarousel from "@/components/commerce/Carousels/PopularCarousel";
@@ -64,11 +65,12 @@ const Shop = async ({
 
   return (
     <div>
-      {/* <ProductCard /> */}
       <CarouselContainer products={products} />
-      {/* {products.map((product: any) => (
-        <p key={product.id}>{product.title}</p>
-      ))} */}
+      <div className="flex flex-wrap justify-center gap-6">
+        {products.map((product: Product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </div>
   );
 };

@@ -17,7 +17,7 @@ const HotSaleCarousel = ({ products }: { products: Product[] }) => {
       product.discount > 10
   );
 
-  console.log(onSaleProducts);
+  // console.log(onSaleProducts);
 
   const calculateInitialPrice = (
     reducedPrice: number,
@@ -32,7 +32,7 @@ const HotSaleCarousel = ({ products }: { products: Product[] }) => {
         Hot Sales:
       </h1>
       <Swiper
-        className="mySwiper w-full  border border-primary rounded-md customSwiper"
+        className="mySwiper w-full  border border-primary rounded-md customSwiper bg-base-100 shadow-lg"
         centeredSlides={true}
         autoplay={{ delay: 2500 }}
         modules={[Autoplay, Navigation]}

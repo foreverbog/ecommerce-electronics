@@ -7,6 +7,7 @@ export interface Product {
   brand: string;
   model: string;
   color: string;
+  category: string;
   popular?: boolean;
   discount?: number;
   onSale?: boolean;

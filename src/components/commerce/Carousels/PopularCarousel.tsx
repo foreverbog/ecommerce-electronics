@@ -14,7 +14,7 @@ const PopularCarousel = ({ products }: { products: Product[] }) => {
     (product: Product) => product.popular === true
   );
 
-  console.log(popularProducts);
+  // console.log(popularProducts);
 
   return (
     <div className="w-full md:w-1/4">
@@ -22,7 +22,7 @@ const PopularCarousel = ({ products }: { products: Product[] }) => {
         Popular:
       </h1>
       <Swiper
-        className="mySwiper w-full border border-primary rounded-md customSwiper"
+        className="mySwiper w-full border border-primary rounded-md customSwiper bg-base-100 shadow-lg"
         centeredSlides={true}
         autoplay={{ delay: 2500 }}
         modules={[Autoplay, Navigation]}
@@ -32,7 +32,7 @@ const PopularCarousel = ({ products }: { products: Product[] }) => {
         {popularProducts.map((product) => (
           <SwiperSlide
             key={product.id}
-            className="relative p-4 rounded-md  h-full hover:cursor-pointer"
+            className="relative p-4 rounded-md  h-full hover:cursor-pointer "
           >
             <h2 className="truncate font-title text-xl md:text-2xl">
               {product.title}
