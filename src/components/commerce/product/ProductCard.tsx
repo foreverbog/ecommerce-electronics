@@ -1,10 +1,11 @@
 import { Product } from "@/app/types/products";
 
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 import ProductImage from "./ProductImage";
 
-const ProductCard = async ({ product }: { product: Product }) => {
+const ProductCard = ({ product }: { product: Product }) => {
   const calculateInitialPrice = (
     reducedPrice: number,
     discount: number
@@ -13,7 +14,14 @@ const ProductCard = async ({ product }: { product: Product }) => {
   };
 
   return (
-    <div className="card card-compact bg-base-100 w-72 md:w-80 shadow-xl font-content">
+    <motion.div
+      initial={{ scale: 0.7 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 0.2 }}
+      whileHover={{ scale: 1.05 }}
+      className="card card-compact bg-base-100 w-72 md:w-80 shadow-xl font-content border border-primary hover:cursor-pointer"
+      onClick={() => console.log(product)}
+    >
       <figure>
         <ProductImage product={product} />
       </figure>
@@ -46,7 +54,7 @@ const ProductCard = async ({ product }: { product: Product }) => {
           <button className="btn btn-primary">Add to cart</button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 export default ProductCard;

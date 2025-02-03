@@ -32,19 +32,21 @@ const PopularCarousel = ({ products }: { products: Product[] }) => {
         {popularProducts.map((product) => (
           <SwiperSlide
             key={product.id}
-            className="relative p-4 rounded-md  h-full hover:cursor-pointer "
+            className="relative  p-4 rounded-md  h-full hover:cursor-pointer"
           >
             <h2 className="truncate font-title text-xl md:text-2xl">
               {product.title}
             </h2>
 
-            <Image
-              className="h-32 w-32 md:h-40 md:w-40 justify-self-center"
-              src={product.image}
-              alt={product.title}
-              width={128}
-              height={128}
-            />
+            <div className="w-full flex justify-center items-center">
+              <Image
+                className="h-32 w-32 md:h-40 md:w-40 justify-self-center"
+                src={product.image}
+                alt={product.title}
+                width={250}
+                height={250}
+              />
+            </div>
 
             <p className="truncate font-content">{product.description}</p>
             <div className="flex justify-end gap-2">

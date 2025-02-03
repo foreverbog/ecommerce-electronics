@@ -1,76 +1,49 @@
 import { getAllProducts } from "@/app/lib/products";
-import { Product } from "@/app/types/products";
+
 import CarouselContainer from "@/components/commerce/Carousels/CarouselContainer";
-import HotSaleCarousel from "@/components/commerce/Carousels/HotSaleCarousel";
-import PopularCarousel from "@/components/commerce/Carousels/PopularCarousel";
-import ProductCard from "@/components/commerce/product/ProductCard";
-import Link from "next/link";
+
+import ProductsList from "@/components/commerce/product/ProductsList";
 
 const Shop = async ({
   searchParams,
 }: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  searchParams: Promise<{ [key: string]: string }>;
 }) => {
-  // const response = await fetch(
-  //   "https://fakestoreapi.in/api/products?limit=150"
-  // );
-
   const products = await getAllProducts();
 
-  // console.log(products);
+  const search = (await searchParams).search;
 
-  // console.log(await searchParams);
-  // const responseProducts = await response.json();
+  const category = (await searchParams).category;
 
-  // const category = (await searchParams).category;
+  console.log(category);
 
-  // console.log(category);
+  if (search) {
+    const searchResult = products.filter((product) =>
+      product.title.toLowerCase().includes(search.toLowerCase())
+    );
+    if (searchResult.length === 0) {
+      return (
+        <div className="h-1/2 flex justify-center items-center font-title text-4xl">
+          Sorry, we couldn&#39;t find any results for:
+          <span className="italic"> &quot;{search}&quot;</span>
+        </div>
+      );
+    }
+    return <ProductsList products={searchResult} />;
+  }
 
-  // if (category) {
-  //   const response = await fetch(
-  //     `https://fakestoreapi.in/api/products/category?type=${category.toLowerCase()}`
-  //   );
+  if (category) {
+    const categoryProducts = products.filter(
+      (product) => product.category.toLowerCase() === category.toLowerCase()
+    );
 
-  //   console.log(await response.json());
-
-  //   return <div>{category}</div>;
-  // }
-
-  // const products = responseProducts.products;
-
-  // // console.log(products);
-
-  // const search = (await searchParams).search;
-  // console.log(search);
-
-  // if (search) {
-  //   await new Promise((resolve) => setTimeout(resolve, 300));
-
-  //   const filteredProducts = products.filter((product) =>
-  //     product.title.toLowerCase().includes(search.toLowerCase())
-  //   );
-
-  //   console.log(filteredProducts);
-  //   if (filteredProducts.length > 0) {
-  //     return <div>Hey</div>;
-  //   } else {
-  //     return (
-  //       <>
-  //         <div>Not found</div>
-  //         <Link href={"/shop"}>Shop</Link>
-  //       </>
-  //     );
-  //   }
-  // }
+    return <ProductsList products={categoryProducts} />;
+  }
 
   return (
     <div>
       <CarouselContainer products={products} />
-      <div className="flex flex-wrap justify-center gap-6">
-        {products.map((product: Product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+      <ProductsList products={products} />
     </div>
   );
 };

@@ -40,7 +40,7 @@ const SearchInput = () => {
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
           type="text"
-          className="grow placeholder:text-sm lg:placeholder:text-base border-r-2 border-r-primary "
+          className="grow placeholder:text-sm lg:placeholder:text-base border-r-2 border-r-primary rounded-none "
           placeholder="What are you looking for?"
         />
         <button onClick={handleSearch}>

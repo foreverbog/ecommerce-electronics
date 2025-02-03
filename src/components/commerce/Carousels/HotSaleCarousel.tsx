@@ -47,16 +47,16 @@ const HotSaleCarousel = ({ products }: { products: Product[] }) => {
             <h2 className="truncate font-title text-xl md:text-2xl">
               {product.title}
             </h2>
-            <div className="relative w-32 md:w-40  justify-self-center">
-              <div className="absolute -right-8 top-1/4 font-content font-bold text-2xl bg-delete p-1 md:p-3 rounded-full rotate-45">
+            <div className="relative w-full md:w-40 justify-self-center flex justify-center items-center">
+              <div className="absolute left-[70%] md:-right-8 top-1/4 font-content font-bold text-2xl bg-delete p-1 md:p-3 rounded-full rotate-45">
                 {product.discount}%
               </div>
               <Image
-                className="h-32 w-32 md:h-40 md:w-40 justify-self-center"
+                className="h-32 w-32 md:h-40 md:w-40"
                 src={product.image}
                 alt={product.title}
-                width={128}
-                height={128}
+                width={250}
+                height={250}
               />
             </div>
             <p className="truncate font-content">{product.description}</p>
