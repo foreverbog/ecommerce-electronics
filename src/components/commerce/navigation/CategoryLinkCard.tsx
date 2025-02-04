@@ -1,21 +1,18 @@
 import { Category } from "@/app/types/category";
-import { ReadonlyURLSearchParams } from "next/navigation";
 
 const CategoryLinkCard = ({
   category,
-  searchQuery,
+  categoryName,
 }: {
   category: Category;
-  searchQuery: ReadonlyURLSearchParams;
+  categoryName: string | string[] | undefined;
 }) => {
   const CategoryIcon = category.icon;
-
-  const selectedCategory = searchQuery.get("category");
 
   return (
     <div
       className={`card w-24 lg:w-40 bg-base-100 justify-between rounded-md shadow-lg hover:scale-105 active:scale-95 transition-transform duration-300 ease-in-out ${
-        selectedCategory === category.name
+        categoryName === category.name
           ? "text-secondary border-secondary border-2"
           : "border text-primary "
       }`}

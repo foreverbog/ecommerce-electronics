@@ -19,7 +19,7 @@ const SearchInput = () => {
 
   const handleSearch = () => {
     if (searchText.trim().length > 0) {
-      router.push(`/shop?search=${searchText}`);
+      router.push(`/shop/search/${searchText}`);
       setSearchText("");
       setError(false);
     } else {
