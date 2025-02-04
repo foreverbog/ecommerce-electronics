@@ -1,9 +1,9 @@
 import { Product } from "@/app/types/products";
 
-import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 import ProductImage from "./ProductImage";
+import ProductButton from "./ProductButton";
 
 const ProductCard = ({ product }: { product: Product }) => {
   const calculateInitialPrice = (
@@ -48,11 +48,7 @@ const ProductCard = ({ product }: { product: Product }) => {
           )}
           <div className="self-end">{product.price}€</div>
         </div>
-        <div className="card-actions justify-end items-center gap-4">
-          <FaRegHeart className="size-6 text-primary" />
-
-          <button className="btn btn-primary">Add to cart</button>
-        </div>
+        <ProductButton product={product} />
       </div>
     </motion.div>
   );
