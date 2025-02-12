@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import "../globals.css";
 import Navbar from "@/components/commerce/navigation/Navbar";
-import { CartContext, CartProvider } from "../context/CartContext";
+import { CartProvider } from "../context/CartContext";
 import { WishListProvider } from "../context/WishListContext";
 
 export const metadata: Metadata = {

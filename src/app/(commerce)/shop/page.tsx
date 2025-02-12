@@ -1,8 +1,11 @@
 import { getAllProducts } from "@/app/lib/products";
 
-import CarouselContainer from "@/components/commerce/Carousels/CarouselContainer";
-import ProductsList from "@/components/commerce/product/ProductsList";
+import CarouselContainer from "@/components/commerce/carousels/CarouselContainer";
+import ProductsList from "@/components/commerce/products/ProductsList";
+import SearchInput from "@/components/commerce/navigation/SearchInput";
+import CategoriesLinks from "@/components/commerce/navigation/CategoriesLinks";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: {
@@ -13,12 +16,20 @@ export const metadata: Metadata = {
 };
 
 const Shop = async () => {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
   const products = await getAllProducts();
 
   return (
     <div>
+      <Suspense>
+        <SearchInput />
+      </Suspense>
+      <CategoriesLinks />
       <CarouselContainer products={products} />
-      <ProductsList products={products} />
+      <Suspense>
+        <ProductsList products={products} />
+      </Suspense>
     </div>
   );
 };

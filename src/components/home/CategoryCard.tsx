@@ -1,4 +1,4 @@
-import { Category } from "@/app/utils/categoriesIcons";
+import { Category } from "@/app/types/category";
 
 const CategoryCard = ({ category }: { category: Category }) => {
   const CategoryIcon = category.icon;

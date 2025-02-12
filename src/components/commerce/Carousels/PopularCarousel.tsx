@@ -3,6 +3,7 @@
 import { Product } from "@/app/types/products";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -24,7 +25,7 @@ const PopularCarousel = ({ products }: { products: Product[] }) => {
       <Swiper
         className="mySwiper w-full border border-primary rounded-md customSwiper bg-base-100 shadow-lg"
         centeredSlides={true}
-        autoplay={{ delay: 2500 }}
+        autoplay={{ delay: 2500, pauseOnMouseEnter: true }}
         modules={[Autoplay, Navigation]}
         navigation={true}
         spaceBetween={30}
@@ -34,26 +35,28 @@ const PopularCarousel = ({ products }: { products: Product[] }) => {
             key={product.id}
             className="relative  p-4 rounded-md  h-full hover:cursor-pointer"
           >
-            <h2 className="truncate font-title text-xl md:text-2xl">
-              {product.title}
-            </h2>
+            <Link href={`/shop/${product.id}`}>
+              <h2 className="truncate font-title text-xl md:text-2xl">
+                {product.title}
+              </h2>
 
-            <div className="w-full flex justify-center items-center">
-              <Image
-                className="h-32 w-32 md:h-40 md:w-40 justify-self-center"
-                src={product.image}
-                alt={product.title}
-                width={250}
-                height={250}
-              />
-            </div>
+              <div className="w-full flex justify-center items-center">
+                <Image
+                  className="h-32 w-32 md:h-40 md:w-40 justify-self-center"
+                  src={product.image}
+                  alt={product.title}
+                  width={250}
+                  height={250}
+                />
+              </div>
 
-            <p className="truncate font-content">{product.description}</p>
-            <div className="flex justify-end gap-2">
-              <p className="font-title text-xl md:text-2xl text-right">
-                {product.price}€
-              </p>
-            </div>
+              <p className="truncate font-content">{product.description}</p>
+              <div className="flex justify-end gap-2">
+                <p className="font-title text-xl md:text-2xl text-right">
+                  {product.price}€
+                </p>
+              </div>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { getAllProducts } from "@/app/lib/products";
-import ProductsList from "@/components/commerce/product/ProductsList";
+import ProductsList from "@/components/commerce/products/ProductsList";
 
 export const generateMetadata = async ({
   params,
@@ -27,11 +27,13 @@ export const generateMetadata = async ({
   };
 };
 
-export const SearchPage = async ({
+const SearchPage = async ({
   params,
 }: {
   params: Promise<{ searchQuery: string }>;
 }) => {
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
+
   const search = (await params).searchQuery;
   console.log(search);
 

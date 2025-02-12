@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 import { getCategoryProducts } from "@/app/lib/products";
-import ProductsList from "@/components/commerce/product/ProductsList";
+import ProductsList from "@/components/commerce/products/ProductsList";
 import { notFound } from "next/navigation";
 
 export const generateMetadata = async ({
@@ -31,7 +31,7 @@ const CategoryPage = async ({
 }: {
   params: Promise<{ category: string }>;
 }) => {
-  //   await new Promise((resolve) => setTimeout(resolve, 300000));
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
 
   const category = (await params).category;
 

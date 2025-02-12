@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 import ProductImage from "./ProductImage";
 import ProductButton from "./ProductButton";
+import Link from "next/link";
 
 const ProductCard = ({ product }: { product: Product }) => {
   const calculateInitialPrice = (
@@ -22,9 +23,11 @@ const ProductCard = ({ product }: { product: Product }) => {
       className="card card-compact bg-base-100 w-72 md:w-80 shadow-xl font-content border border-primary hover:cursor-pointer"
       onClick={() => console.log(product)}
     >
-      <figure>
-        <ProductImage product={product} />
-      </figure>
+      <Link href={`/shop/${product.id}`}>
+        <figure>
+          <ProductImage product={product} />
+        </figure>
+      </Link>
       <div className="card-body">
         <h2 className="card-title truncate font-title">{product.title}!</h2>
         <div className="flex gap-1">
@@ -35,7 +38,7 @@ const ProductCard = ({ product }: { product: Product }) => {
             </div>
           )}
           {product.onSale && (
-            <div className="badge badge-primary border-delete bg-delete text-delete-foreground">
+            <div className="badge badge-primary border-secondary bg-secondary text-secondary-foreground">
               on sale
             </div>
           )}

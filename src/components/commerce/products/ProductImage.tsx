@@ -10,7 +10,7 @@ const ProductImage = ({ product }: { product: Product }) => {
   const [imageSrc, setImageSrc] = useState<string>(
     product.image
       ? product.image
-      : "https://fakeimg.pl/200x200/ffffff/5241c3?text=No+Image&font=noto-serif&font_size=24"
+      : "https://fakeimg.pl/200x200/f0f0f0/5241c3?text=No+Image&font=noto&font_size=26"
   );
 
   return (
@@ -20,7 +20,7 @@ const ProductImage = ({ product }: { product: Product }) => {
       alt={product.title}
       onError={() =>
         setImageSrc(
-          "https://fakeimg.pl/200x200/ffffff/5241c3?text=No+Image&font=noto-serif&font_size=24"
+          "https://fakeimg.pl/200x200/f0f0f0/5241c3?text=No+Image&font=noto&font_size=26"
         )
       }
       width={200}

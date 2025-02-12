@@ -7,7 +7,7 @@ import { Product } from "@/app/types/products";
 
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
-const ProductButton = ({ product }: { product: Product }) => {
+const SingleProductButtons = ({ product }: { product: Product }) => {
   const { removeFromCart, addToCart, products } = useCart();
   const { removeFromWishList, addToWishList, wishProducts } = useWishList();
 
@@ -37,26 +37,29 @@ const ProductButton = ({ product }: { product: Product }) => {
 
   //   console.log(products);
   return (
-    <div className="card-actions justify-end items-center gap-4">
+    <div className="card-actions justify-end items-center gap-4 md:mr-12">
       {isInWishList ? (
         <FaHeart
           onClick={handleRemoveFromWishList}
-          className="size-6 text-primary cursor-pointer"
+          className="size-6 md:size-8 text-primary cursor-pointer"
         />
       ) : (
         <FaRegHeart
           onClick={handleAddToWishList}
-          className="size-6 text-primary cursor-pointer"
+          className="size-6 md:size-8 text-primary cursor-pointer"
         />
       )}
       {!isInCart ? (
-        <button onClick={handleAddToCart} className="btn btn-primary">
+        <button
+          onClick={handleAddToCart}
+          className="btn md:btn-normal btn-primary "
+        >
           Add to cart
         </button>
       ) : (
         <button
           onClick={handleRemovefromCart}
-          className="btn btn-primary bg-delete hover:bg-delete-lighter border-delete hover:border-delete-lighter text-delete-foreground"
+          className="btn md:btn-normal btn-primary bg-accent hover:bg-accent-lighter border-accent hover:border-accent-lighter text-accent-foreground"
         >
           Remove from cart
         </button>
@@ -64,4 +67,4 @@ const ProductButton = ({ product }: { product: Product }) => {
     </div>
   );
 };
-export default ProductButton;
+export default SingleProductButtons;

@@ -1,4 +1,4 @@
-import "../../globals.css";
+import "../../../globals.css";
 import SearchInput from "@/components/commerce/navigation/SearchInput";
 import CategoriesLinks from "@/components/commerce/navigation/CategoriesLinks";
 
