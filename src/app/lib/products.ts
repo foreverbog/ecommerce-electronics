@@ -2,6 +2,8 @@ import { Product } from "../types/products";
 
 export const getAllProducts = async (): Promise<Product[]> => {
   try {
+    // await new Promise((resolve) => setTimeout(resolve, 3000));
+
     const response = await fetch(
       "https://fakestoreapi.in/api/products?limit=150"
     );

@@ -35,7 +35,7 @@ const PopularCarousel = ({ products }: { products: Product[] }) => {
             key={product.id}
             className="relative  p-4 rounded-md  h-full hover:cursor-pointer"
           >
-            <Link href={`/shop/${product.id}`}>
+            <Link href={`/shop/product/${product.id}`}>
               <h2 className="truncate font-title text-xl md:text-2xl">
                 {product.title}
               </h2>

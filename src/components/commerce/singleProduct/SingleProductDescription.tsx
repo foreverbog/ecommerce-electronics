@@ -21,7 +21,7 @@ const SingleProductDescription = ({ product }: { product: Product }) => {
       </div>
       <div className="flex flex-col gap-4">
         <h2 className="font-bold text-xl md:text-2xl ">About:</h2>
-        <p className="text-balance -mt-2 text-sm md:text-base mr-12">
+        <p className="text-balance -mt-2 text-sm md:text-base md:mr-12">
           {product.description}
         </p>
         <p className="font-bold text-sm md:text-base">

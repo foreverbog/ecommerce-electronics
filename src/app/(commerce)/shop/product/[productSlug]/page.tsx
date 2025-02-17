@@ -19,7 +19,7 @@ const ProductPage = async ({
   // console.log(product);
 
   return (
-    <div className="p-4 font-content">
+    <div className="p-4 font-content relative">
       {/* TITLE */}
       <SingleProductHeading product={product} />
 

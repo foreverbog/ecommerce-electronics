@@ -24,7 +24,7 @@ const SimilarProductCard = ({ product }: { product: Product }) => {
       className="card card-compact bg-base-100 w-72 md:w-80 shadow-xl font-content border border-primary hover:cursor-pointer"
       onClick={() => console.log(product)}
     >
-      <Link href={`/shop/${product.id}`}>
+      <Link href={`/shop/product/${product.id}`}>
         <figure>
           <ProductImage product={product} />
         </figure>
