@@ -2,13 +2,13 @@
 
 import { Product } from "@/app/types/products";
 
-import Image from "next/image";
 import Link from "next/link";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import ProductImage from "../products/ProductImage";
 
 const PopularCarousel = ({ products }: { products: Product[] }) => {
   const popularProducts = products.filter(
@@ -41,13 +41,7 @@ const PopularCarousel = ({ products }: { products: Product[] }) => {
               </h2>
 
               <div className="w-full flex justify-center items-center">
-                <Image
-                  className="h-32 w-32 md:h-40 md:w-40 justify-self-center"
-                  src={product.image}
-                  alt={product.title}
-                  width={250}
-                  height={250}
-                />
+                <ProductImage product={product} />
               </div>
 
               <p className="truncate font-content">{product.description}</p>

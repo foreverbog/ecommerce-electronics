@@ -4,6 +4,7 @@ import "../globals.css";
 import Navbar from "@/components/commerce/navigation/Navbar";
 import { CartProvider } from "../context/CartContext";
 import { WishListProvider } from "../context/WishListContext";
+import Footer from "@/components/commerce/navigation/Footer";
 
 export const metadata: Metadata = {
   title: {
@@ -25,6 +26,7 @@ export default function CommerceLayout({
           <body>
             <Navbar />
             {children}
+            <Footer />
           </body>
         </html>
       </WishListProvider>

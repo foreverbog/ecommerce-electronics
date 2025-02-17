@@ -2,13 +2,13 @@
 
 import { Product } from "@/app/types/products";
 
-import Image from "next/image";
 import Link from "next/link";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import ProductImage from "../products/ProductImage";
 
 const HotSaleCarousel = ({ products }: { products: Product[] }) => {
   const onSaleProducts = products.filter(
@@ -53,13 +53,7 @@ const HotSaleCarousel = ({ products }: { products: Product[] }) => {
                 <div className="absolute left-[70%] md:-right-8 top-1/4 font-content font-bold text-2xl bg-delete p-1 md:p-3 rounded-full rotate-45">
                   {product.discount}%
                 </div>
-                <Image
-                  className="h-32 w-32 md:h-40 md:w-40"
-                  src={product.image}
-                  alt={product.title}
-                  width={250}
-                  height={250}
-                />
+                <ProductImage product={product} />
               </div>
               <p className="truncate font-content">{product.description}</p>
               <div className="flex justify-end gap-2">
