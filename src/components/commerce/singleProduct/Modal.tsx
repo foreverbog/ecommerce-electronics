@@ -15,7 +15,7 @@ export function Modal({ children }: { children: React.ReactNode }) {
   }, []);
 
   const closeModal = (e: React.MouseEvent<HTMLDialogElement, MouseEvent>) =>
-    e.target === dialogRef.current && router.back();
+    e.target === dialogRef.current && router.push("/shop");
 
   console.log(dialogRef);
 
@@ -23,7 +23,7 @@ export function Modal({ children }: { children: React.ReactNode }) {
     <dialog
       ref={dialogRef}
       onClick={closeModal}
-      onClose={router.back}
+      onClose={() => router.push("/shop")}
       className="backdrop:bg-black/60 backdrop:backdrop-blur-sm rounded-md lg:w-4/5"
     >
       <IoIosClose
