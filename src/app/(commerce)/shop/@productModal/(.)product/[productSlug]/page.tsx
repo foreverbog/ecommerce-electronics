@@ -4,6 +4,7 @@ import SingleProductDescription from "@/components/commerce/singleProduct/Single
 import SingleProductHeading from "@/components/commerce/singleProduct/SingleProductHeading";
 import SingleProductImage from "@/components/commerce/singleProduct/SingleProductImage";
 import { Modal } from "../../../../../../components/commerce/singleProduct/Modal";
+import SimilarProductsList from "@/components/commerce/singleProduct/SimilarProductsList";
 
 const ProductPage = async ({
   params,
@@ -29,6 +30,11 @@ const ProductPage = async ({
           <SingleProductImage product={product} />
 
           <SingleProductDescription product={product} />
+        </div>
+
+        <div className="mt-20">
+          <h1 className="text-3xl text-primary font-bold">Similar Products:</h1>
+          <SimilarProductsList product={product} />
         </div>
       </div>
     </Modal>

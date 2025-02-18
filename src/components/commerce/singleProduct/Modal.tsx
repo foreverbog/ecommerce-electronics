@@ -11,6 +11,7 @@ export function Modal({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     dialogRef.current?.showModal();
+    dialogRef.current?.scrollTo(0, 0);
   }, []);
 
   const closeModal = (e: React.MouseEvent<HTMLDialogElement, MouseEvent>) =>
@@ -30,7 +31,7 @@ export function Modal({ children }: { children: React.ReactNode }) {
         className="size-10 float-right m-4 text-base-content cursor-pointer hover:scale-105 active:scale-95 transition-all duration-300"
       />
 
-      <div>{children}</div>
+      {children}
     </dialog>
   );
 }
