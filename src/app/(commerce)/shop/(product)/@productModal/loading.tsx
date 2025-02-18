@@ -1,4 +1,4 @@
-import { Modal } from "../../../../components/commerce/singleProduct/Modal";
+import { Modal } from "../../../../../components/commerce/singleProduct/Modal";
 
 const Loading = () => {
   return (

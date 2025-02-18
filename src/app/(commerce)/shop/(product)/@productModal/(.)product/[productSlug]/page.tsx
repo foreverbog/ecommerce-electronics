@@ -3,7 +3,7 @@ import { getSingleProduct } from "@/app/lib/products";
 import SingleProductDescription from "@/components/commerce/singleProduct/SingleProductDescription";
 import SingleProductHeading from "@/components/commerce/singleProduct/SingleProductHeading";
 import SingleProductImage from "@/components/commerce/singleProduct/SingleProductImage";
-import { Modal } from "../../../../../../components/commerce/singleProduct/Modal";
+import { Modal } from "../../../../../../../components/commerce/singleProduct/Modal";
 
 const ProductPage = async ({
   params,

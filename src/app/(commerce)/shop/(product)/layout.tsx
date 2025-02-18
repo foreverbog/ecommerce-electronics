@@ -1,4 +1,4 @@
-export default function ShopLayout({
+export default function ProductLayout({
   children,
   productModal,
 }: Readonly<{
